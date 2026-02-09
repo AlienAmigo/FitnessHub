@@ -1,17 +1,21 @@
-import Image from "next/image";
+import Image from 'next/image';
 
-import { TopBanner } from "@components/TopBanner"
-import { Button } from "@components/UI/Button";
+import { TopBanner } from '@components/TopBanner';
+import { Button } from '@components/UI/Button';
 
 export default function Home() {
   return (
-    <main className={'flex flex-col h-full w-304 ml-auto mr-auto font-sans'}>
+    <>
       <TopBanner />
-      <h1 className={'mt-12.5 text-2xl font-bold'}>
-        Выбери подходящий для себя тариф
-      </h1>
-      <Button>Пример</Button>
-    </main>
+      <main className={'flex flex-col h-full w-304 ml-auto mr-auto'}>
+        <h1 className={'mt-12.5 text-2xl font-bold'}>
+          Выбери подходящий для себя{' '}
+          <span className={'text-accent'}>тариф</span>
+        </h1>
+        <Button>Пример</Button>
+      </main>
+    </>
+
     // <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
     //   <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
     //     <Image

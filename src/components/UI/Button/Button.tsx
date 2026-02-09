@@ -9,7 +9,10 @@ export interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonEleme
 export const Button: React.FC<IButtonProps> = props => {
   const { children, className, ...buttonProps } = props;
 
-  const buttonClassNames = classNames('flex align-center justify-center', className);
+  const buttonClassNames = classNames(
+    'flex items-center justify-center bg-accent w-max p-5 font-bold rounded-xl',
+    className
+  );
 
   return (
     <button {...buttonProps} className={buttonClassNames}>

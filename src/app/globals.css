@@ -1,26 +1,20 @@
-@import "tailwindcss";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-:root {
-  --background: #232829;
-  --foreground: #171717;
-  --accent: #FDB056;
-}
+@theme {
+  --color-primary: #1a73e8;
+  --color-secondary: #f50057;
+  --color-accent: #fdb056;
+  --color-darkgreen: #1d5b43;
+  --color-dark: #232829;
+  --color-light: #f8f9fa;
+  --color-white: #ffffff;
+  --color-success: #10b981; /* добавьте если нужно */
+  --color-warning: #f59e0b; /* добавьте если нужно */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --background: var(--color-dark);
+  --foreground: var(--color-white);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Опционально: кастомные шрифты */
 }
 
 body {
@@ -30,6 +24,6 @@ body {
   min-height: 100vh;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
   overflow-x: hidden;
 }
