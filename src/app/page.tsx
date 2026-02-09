@@ -1,10 +1,12 @@
 import Image from "next/image";
 
+import { TopBanner } from "@components/TopBanner"
 import { Button } from "@components/UI/Button";
 
 export default function Home() {
   return (
     <main className={'flex flex-col h-full w-304 ml-auto mr-auto font-sans'}>
+      <TopBanner />
       <h1 className={'mt-12.5 text-2xl font-bold'}>
         Выбери подходящий для себя тариф
       </h1>
