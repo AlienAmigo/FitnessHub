@@ -1,0 +1,1 @@
+export { ManPhoto } from './ManPhoto';

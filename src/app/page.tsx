@@ -1,18 +1,32 @@
-import Image from 'next/image';
-
+'use client';
 import { TopBanner } from '@components/TopBanner';
+import { Guarantee } from '@components/Guarantee';
+import { ManPhoto } from '@components/ManPhoto';
 import { Button } from '@components/UI/Button';
 
 export default function Home() {
+  const handleOnBuyBtnClick = () => {
+    alert('Click');
+  };
+
   return (
     <>
       <TopBanner />
       <main className={'flex flex-col h-full w-304 ml-auto mr-auto'}>
-        <h1 className={'mt-12.5 text-2xl font-bold'}>
+        <h1 className={'mt-12.5 mb-27.5 font-bold text-[40px]'}>
           Выбери подходящий для себя{' '}
           <span className={'text-accent'}>тариф</span>
         </h1>
-        <Button>Пример</Button>
+        <div className={'grid grid-cols-[1fr_748px] mb-16.5'}>
+          <ManPhoto className={'mt-13'} />
+          <div>
+            <Button onClick={handleOnBuyBtnClick} className={'min-w-[352px]'}>
+              Купить
+            </Button>
+          </div>
+        </div>
+
+        <Guarantee />
       </main>
     </>
 

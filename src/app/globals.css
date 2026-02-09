@@ -8,13 +8,17 @@
   --color-dark: #232829;
   --color-light: #f8f9fa;
   --color-white: #ffffff;
-  --color-success: #10b981; /* добавьте если нужно */
-  --color-warning: #f59e0b; /* добавьте если нужно */
+  --color-success: #81fe95;
+  --color-warning: #fd5656;
+  --color-error: #ff4e4e;
+
+  --color-darker: #191e1f;
+  --color-gray: #313637;
+  --color-lightgray: #484d4e;
+  --color-lightgray2: #dcdcdc;
 
   --background: var(--color-dark);
   --foreground: var(--color-white);
-
-  /* Опционально: кастомные шрифты */
 }
 
 body {
