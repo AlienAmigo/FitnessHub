@@ -12,14 +12,17 @@ export interface ITariffListProps {
 }
 
 export const TariffList: React.FC<ITariffListProps> = ({ className, data }) => {
-  const listClassNames = classNames('grid grid-cols-3 gap-3.5', className);
+  const listClassNames = classNames(
+    'grid grid-cols-3 gap-3.5 list-none p-0',
+    className
+  );
 
   return (
     <ul className={listClassNames}>
       {data.map((item: ITariff) => (
         <li
           key={item.id}
-          className={classNames(item.is_best ? 'col-span-full' : '')}
+          className={classNames({ 'col-span-full': item.is_best })}
         >
           <TariffCard {...item} />
         </li>

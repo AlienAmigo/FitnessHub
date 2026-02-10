@@ -7,6 +7,7 @@ import { Guarantee } from '@components/Guarantee';
 import { ManPhoto } from '@components/ManPhoto';
 import { Button } from '@components/UI/Button';
 import { TariffList } from '@components/TariffList';
+import { PlanInfo } from '@components/PlanInfo';
 
 /* hooks */
 import { useGetTariffs } from '@/hooks/useGetTariffs';
@@ -49,11 +50,7 @@ export default function Home() {
               selectedId={selectedId || bestId}
               className={'mb-5'}
             />
-            <div className={'relative '}>
-              <span></span>
-              Следуя плану на&nbsp;3&nbsp;месяца и&nbsp;более, люди получают
-              в&nbsp;2&nbsp;раза лучший результат, чем за&nbsp;1&nbsp;месяц
-            </div>
+            <PlanInfo className={'mb-7.5'} />
 
             <Button type={'submit'} className={'min-w-88'}>
               Купить
