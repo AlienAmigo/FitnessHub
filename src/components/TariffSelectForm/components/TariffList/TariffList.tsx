@@ -1,17 +1,26 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { ITariff } from '@/types';
-import { TariffCard } from '@components/TariffCard/TariffCard';
+import { TariffCard, ITariffCardProps } from '../TariffCard';
 
-export interface ITariffListProps {
+import { ITariff } from '@/types';
+
+export interface ITariffListProps extends Pick<
+  ITariffCardProps,
+  'isSelected' | 'isTimeOver' | 'onSelect'
+> {
   data: ITariff[];
-  onSelect?: React.Dispatch<React.SetStateAction<string | null>>;
   selectedId: string | null;
   className?: string;
 }
 
-export const TariffList: React.FC<ITariffListProps> = ({ className, data }) => {
+export const TariffList: React.FC<ITariffListProps> = ({
+  isTimeOver,
+  onSelect,
+  selectedId,
+  className,
+  data,
+}) => {
   const listClassNames = classNames(
     'grid grid-cols-3 gap-3.5 list-none p-0',
     className
@@ -24,7 +33,12 @@ export const TariffList: React.FC<ITariffListProps> = ({ className, data }) => {
           key={item.id}
           className={classNames({ 'col-span-full': item.is_best })}
         >
-          <TariffCard {...item} />
+          <TariffCard
+            {...item}
+            onSelect={onSelect}
+            isSelected={selectedId === item.id}
+            isTimeOver={isTimeOver}
+          />
         </li>
       ))}
     </ul>

@@ -1,6 +1,39 @@
 @import 'tailwindcss';
 
 @theme {
+  @keyframes ping-alt {
+    50% {
+      transform: scale(1.15);
+      opacity: 0.75;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeInPulse {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.15);
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
   --color-primary: #1a73e8;
   --color-secondary: #f50057;
   --color-accent: #fdb056;
@@ -19,9 +52,40 @@
   --color-lightgray2: #dcdcdc;
   --color-lightgray3: #9b9b9b;
   --color-lightgray4: #919191;
+  --color-lightgray5: #cdcdcd;
 
   --background: var(--color-dark);
   --foreground: var(--color-white);
+
+  --animate-ping-alt: ping-alt 1s linear infinite;
+  --animate-fade-in: fadeIn 1s ease;
+  --animate-fade-in-pulse: fadeInPulse 1s ease;
+}
+
+@layer utilities {
+  .animate-ping-alt {
+    animation: var(--animate-ping-alt);
+  }
+
+  .animate-fade-in {
+    animation: var(--animate-fade-in);
+  }
+
+  .animate-fade-in-pulse {
+    animation: var(--animate-fade-in-pulse);
+  }
+}
+
+@layer base {
+  *,
+  *:before,
+  *:after {
+    @apply transition-all duration-350 ease-in-out;
+  }
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {

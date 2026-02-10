@@ -1,13 +1,12 @@
 'use client';
-import React, { useState, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 
 /* components */
 import { TopBanner } from '@components/TopBanner';
 import { Guarantee } from '@components/Guarantee';
 import { ManPhoto } from '@components/ManPhoto';
-import { Button } from '@components/UI/Button';
-import { TariffList } from '@components/TariffList';
-import { PlanInfo } from '@components/PlanInfo';
+import { Loader } from '@components/UI/Loader';
+import { TariffSelectForm } from '@components/TariffSelectForm';
 
 /* hooks */
 import { useGetTariffs } from '@/hooks/useGetTariffs';
@@ -16,56 +15,41 @@ import { useGetTariffs } from '@/hooks/useGetTariffs';
 import { ITariff } from '@/types';
 
 export default function Home() {
-  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [time, setTime] = useState(10);
 
   const { tariffsData, isLoading, error } = useGetTariffs();
 
-  const bestId = useMemo(
-    () => tariffsData?.find(item => item.is_best)?.id || null,
-    [tariffsData]
-  );
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTime(prev => (prev > 0 ? prev - 1 : 0));
+    }, 1000);
 
-  const handleOnSubmit = (e: React.SyntheticEvent) => {
-    e.preventDefault();
-    alert(`Выбран тариф`);
-  };
+    return () => clearInterval(interval);
+  }, [isLoading, tariffsData]);
 
   return (
     <>
-      <TopBanner />
-      <main className={'flex flex-col h-full w-304 ml-auto mr-auto'}>
-        <h1 className={'mt-12.5 mb-27.5 font-bold text-[40px]'}>
+      <TopBanner time={time} />
+      <main className={'flex flex-col h-full w-304 ml-auto mr-auto pb-37.5'}>
+        <h1 className={'mt-11.5 mb-27.5 font-bold text-[40px] leading-[110%]'}>
           Выбери подходящий для себя{' '}
           <span className={'text-accent'}>тариф</span>
         </h1>
         <div className={'grid grid-cols-[1fr_748px] mb-16.5'}>
           <ManPhoto className={'mt-13'} />
-          <form method={'POST'} onSubmit={handleOnSubmit}>
-            <TariffList
-              data={[
-                ...tariffsData.filter(item => item.is_best),
-                ...tariffsData.filter(item => !item.is_best),
-              ]}
-              onSelect={setSelectedId}
-              selectedId={selectedId || bestId}
-              className={'mb-5'}
+          {isLoading || !tariffsData.length ? (
+            <Loader className={'self-center justify-self-center'} />
+          ) : (
+            <TariffSelectForm
+              isTimeOver={time === 0}
+              tariffsData={tariffsData.map((item: ITariff, index) => ({
+                ...item,
+                id: item.id + '_' + index,
+              }))} // бага, прилетают элементы с одинаковыми id
+              className={'animate-fade-in'}
             />
-            <PlanInfo className={'mb-7.5'} />
-
-            <Button type={'submit'} className={'min-w-88'}>
-              Купить
-            </Button>
-            <small className={'mt-3.5 text-[14px] text-lightgray3'}>
-              Нажимая кнопку &laquo;Купить&raquo;, Пользователь соглашается
-              на&nbsp;разовое списание денежных средств для получения
-              пожизненного доступа к&nbsp;приложению. Пользователь соглашается,
-              что данные кредитной/дебетовой карты будут сохранены для
-              осуществления покупок дополнительных услуг сервиса в&nbsp;случае
-              желания пользователя.
-            </small>
-          </form>
+          )}
         </div>
-
         <Guarantee />
       </main>
     </>
