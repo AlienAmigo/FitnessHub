@@ -18,9 +18,9 @@ export const TopBanner: React.FC<ITopBannerProps> = ({ time }) => {
     'flex w-max justify-center items-center gap-2 py-1 font-bold text-[40px] leading-[110%] font-raleway',
     time <= 30
       ? time === 0
-        ? 'text-error'
-        : 'animate-ping-alt text-accent'
-      : 'text-white'
+        ? 'text-white'
+        : 'animate-ping-alt text-error'
+      : 'text-accent'
   );
 
   return (

@@ -11,17 +11,22 @@ import { TariffSelectForm } from '@components/TariffSelectForm';
 /* hooks */
 import { useGetTariffs } from '@/hooks/useGetTariffs';
 
+/* config */
+import { TOP_BANNER_TIME } from '@/config';
+
 /* types */
 import { ITariff } from '@/types';
 
 export default function Home() {
-  const [time, setTime] = useState(10);
+  const [time, setTime] = useState(TOP_BANNER_TIME);
 
   const { tariffsData, isLoading, error } = useGetTariffs();
 
   useEffect(() => {
     const interval = setInterval(() => {
-      !isLoading && tariffsData.length && setTime(prev => (prev > 0 ? prev - 1 : 0));
+      !isLoading &&
+        tariffsData.length &&
+        setTime(prev => (prev > 0 ? prev - 1 : 0));
     }, 1000);
 
     return () => clearInterval(interval);

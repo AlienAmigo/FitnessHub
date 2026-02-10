@@ -24,6 +24,7 @@ export const TariffSelectForm: React.FC<ITariffSelectFormProps> = ({
 }) => {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [isPrivacyPolicyChecked, setIsPolicyChecked] = useState<boolean>(false);
+  const [isError, setIsError] = useState<boolean>(false);
 
   const bestId = useMemo(
     () => tariffsData?.find(item => item.is_best)?.id || null,
@@ -32,7 +33,11 @@ export const TariffSelectForm: React.FC<ITariffSelectFormProps> = ({
 
   const handleOnSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    alert(`Выбран тариф`);
+    if (isPrivacyPolicyChecked) {
+      alert(`Выбран тариф`);
+    } else {
+      setIsError(true);
+    }
   };
 
   const formClassNames = classNames(
@@ -57,7 +62,11 @@ export const TariffSelectForm: React.FC<ITariffSelectFormProps> = ({
         className={'max-w-162.5 mb-4'}
         name={'privacy-policy'}
         checked={isPrivacyPolicyChecked}
-        onClick={() => setIsPolicyChecked(prev => !prev)}
+        onClick={() => {
+          setIsPolicyChecked(prev => !prev);
+          setIsError(false);
+        }}
+        isInvalid={isError && !isPrivacyPolicyChecked}
         label={
           <span className={'text-[16px] leading-[110%] text-lightgray5'}>
             Я&nbsp;согласен с&nbsp;

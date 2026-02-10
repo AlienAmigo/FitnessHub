@@ -4,7 +4,7 @@
   @keyframes ping-alt {
     50% {
       transform: scale(1.15);
-      opacity: 0.75;
+      opacity: 0.5;
     }
     100% {
       transform: scale(1);
@@ -62,7 +62,7 @@
   --animate-fade-in-pulse: fadeInPulse 1s ease;
 
   --font-sans: Montserrat, Arial, Helvetica, sans-serif;
-  --font-raleway: Raleway, Arial, Helvetica, sans-serif
+  --font-raleway: Raleway, Arial, Helvetica, sans-serif;
 }
 
 @layer utilities {
