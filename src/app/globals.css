@@ -16,6 +16,8 @@
   --color-gray: #313637;
   --color-lightgray: #484d4e;
   --color-lightgray2: #dcdcdc;
+  --color-lightgray3: #9B9B9B;
+  --color-lightgray4: #919191;
 
   --background: var(--color-dark);
   --foreground: var(--color-white);
