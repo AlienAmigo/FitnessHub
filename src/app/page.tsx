@@ -21,7 +21,7 @@ export default function Home() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setTime(prev => (prev > 0 ? prev - 1 : 0));
+      !isLoading && tariffsData.length && setTime(prev => (prev > 0 ? prev - 1 : 0));
     }, 1000);
 
     return () => clearInterval(interval);
@@ -41,7 +41,7 @@ export default function Home() {
             <Loader className={'self-center justify-self-center'} />
           ) : (
             <TariffSelectForm
-              isTimeOver={time === 0}
+              isTimeOver={!time}
               tariffsData={tariffsData.map((item: ITariff, index) => ({
                 ...item,
                 id: item.id + '_' + index,

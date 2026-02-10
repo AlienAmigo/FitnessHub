@@ -60,6 +60,9 @@
   --animate-ping-alt: ping-alt 1s linear infinite;
   --animate-fade-in: fadeIn 1s ease;
   --animate-fade-in-pulse: fadeInPulse 1s ease;
+
+  --font-sans: Montserrat, Arial, Helvetica, sans-serif;
+  --font-raleway: Raleway, Arial, Helvetica, sans-serif
 }
 
 @layer utilities {

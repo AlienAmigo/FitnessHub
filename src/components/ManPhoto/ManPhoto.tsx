@@ -1,6 +1,6 @@
 import React from 'react';
+import classNames from 'classnames';
 
-// Импорт изображений (убедитесь, что файлы существуют)
 import ManDesktop from './assets/man-desktop.png';
 import ManDesktop2x from './assets/man-desktop-2x.png';
 import ManTablet from './assets/man-tablet.png';
@@ -10,14 +10,14 @@ import ManMobile2x from './assets/man-mobile-2x.png';
 
 interface IManPhotoProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   className?: string;
-  pictureClassName?: string;
 }
 
 export const ManPhoto: React.FC<IManPhotoProps> = ({
   className = '',
-  pictureClassName = '',
   ...imgProps
 }) => {
+  const imgClassNames = classNames('object-contain', className);
+
   return (
     <picture>
       <source
@@ -43,7 +43,7 @@ export const ManPhoto: React.FC<IManPhotoProps> = ({
         src={ManDesktop.src}
         srcSet={`${ManDesktop.src} 1x, ${ManDesktop2x.src} 2x`}
         alt="Атлет. Made by AI"
-        className={`object-contain ${className}`}
+        className={imgClassNames}
         loading="lazy"
         decoding="async"
         width={381}
