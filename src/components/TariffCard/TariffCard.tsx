@@ -12,7 +12,8 @@ export const TariffCard: React.FC<ITariffCardProps> = props => {
 
   const discountValue = 10;
 
-  const bestCardClasses = 'grid col-span-full grid-cols-[max-content_1fr] items-center gap-10 pt-8.5 pr-20 pb-7.5 pl-30.5';
+  const bestCardClasses =
+    'grid col-span-full grid-cols-[max-content_1fr] items-center gap-10 pt-8.5 pr-20 pb-7.5 pl-30.5';
 
   const cardClassNames =
     'flex flex-col justify-between min-h-[335px] pt-17.5 px-4.5 pb-[26px]';
@@ -30,7 +31,13 @@ export const TariffCard: React.FC<ITariffCardProps> = props => {
         }
       >{`–${discountValue}%`}</span>
       {is_best && (
-        <span className={'absolute top-2.5 right-5 text-accent text-[22px] leading-[130%]'}>хит!</span>
+        <span
+          className={
+            'absolute top-2.5 right-5 text-accent text-[22px] leading-[130%]'
+          }
+        >
+          хит!
+        </span>
       )}
       <div className="w-max self-center">
         <h2
@@ -42,9 +49,14 @@ export const TariffCard: React.FC<ITariffCardProps> = props => {
           {period}
         </h2>
         <p
-          className={classNames('text-center font-semibold text-[50px] leading-none', {'text-accent' : is_best })}
+          className={classNames(
+            'text-center font-semibold text-[50px] leading-none',
+            { 'text-accent': is_best }
+          )}
         >{`${price} ₽`}</p>
-        <p className={'text-end line-through text-[24px] text-lightgray4'}>{`${full_price} ₽`}</p>
+        <p
+          className={'text-end line-through text-[24px] text-lightgray4'}
+        >{`${full_price} ₽`}</p>
       </div>
       <span
         className={'min-h-15.5 py-2.5 text-[16px] font-light leading-[130%]'}
