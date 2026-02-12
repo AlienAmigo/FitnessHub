@@ -10,12 +10,12 @@ export const Guarantee = () => (
   >
     <h2
       className={classNames(
-        'w-max py-4 px-7.5 border border-success rounded-[68px] text-success font-medium text-[28px] leading-[120%]',
-        'max-xl:pt-2.5 max-xl:py-4.5 max-xl:pb-3 max-xl:text-[18px]',
-        'max-sm:text-[16px]'
+        'max-w-max py-4 px-7.5 border border-success rounded-[68px] text-success font-medium text-[28px] leading-[120%]',
+        'max-xl:pt-2.5 max-xl:px-4.5 max-xl:pb-3 max-xl:text-[18px]',
+        'max-sm:max-w-max max-sm:text-[16px]'
       )}
     >
-      гарантия возврата 30 дней
+      гарантия возврата 30&nbsp;дней
     </h2>
     <p
       className={classNames(
