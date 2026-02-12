@@ -55,11 +55,11 @@ export const TariffSelectForm: React.FC<ITariffSelectFormProps> = ({
         onSelect={setSelectedId}
         selectedId={selectedId || bestId}
         isTimeOver={isTimeOver}
-        className={'mb-5'}
+        className={'mb-5 max-md:mb-3 max-sm:mb-2.5'}
       />
-      <PlanInfo className={'mb-7.5'} />
+      <PlanInfo className={'mb-7.5 max-md:mb-6 max-md:sm-3'} />
       <Checkbox
-        className={'max-w-162.5 mb-4'}
+        className={'max-w-162.5 mb-4 max-md:mb-5'}
         name={'privacy-policy'}
         checked={isPrivacyPolicyChecked}
         onClick={() => {
@@ -68,17 +68,31 @@ export const TariffSelectForm: React.FC<ITariffSelectFormProps> = ({
         }}
         isInvalid={isError && !isPrivacyPolicyChecked}
         label={
-          <span className={'text-[16px] leading-[110%] text-lightgray5'}>
+          <span
+            className={classNames(
+              'text-[16px] leading-[110%] text-lightgray5',
+              'max-md:max-w-80 max-md:text-[12px] max-md:self-center'
+            )}
+          >
             Я&nbsp;согласен с&nbsp;
             <Link href={'#'}>офертой рекуррентных платежей</Link> и&nbsp;
             <Link href={'#'}>Политикой конфиденциальности</Link>
           </span>
         }
       />
-      <Button type={'submit'} className={'min-w-88 mb-3.5 hover:animate-pulse'}>
+      <Button
+        type={'submit'}
+        className={'min-w-88 mb-3.5 hover:animate-pulse max-sm:min-w-full'}
+      >
         Купить
       </Button>
-      <small className={'text-[14px] text-lightgray3'}>
+      <small
+        className={classNames(
+          'text-[14px] text-lightgray3',
+          'max-md:text-[12px]',
+          'max-sm:text-[10px]'
+        )}
+      >
         Нажимая кнопку &laquo;Купить&raquo;, Пользователь соглашается
         на&nbsp;разовое списание денежных средств для получения пожизненного
         доступа к&nbsp;приложению. Пользователь соглашается, что данные

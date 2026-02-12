@@ -10,7 +10,8 @@ export const Button: React.FC<IButtonProps> = props => {
   const { children, className, ...buttonProps } = props;
 
   const buttonClassNames = classNames(
-    'flex items-center justify-center bg-accent w-max p-5 font-bold text-[20px] text-darker rounded-[20px] cursor-pointer',
+    'flex items-center justify-center bg-accent w-max p-5 font-bold text-[20px] text-darker rounded-[20px] cursor-pointer max-xl:flex-col max-xl:justify-start',
+    'max-md:text-[18px]',
     className
   );
 

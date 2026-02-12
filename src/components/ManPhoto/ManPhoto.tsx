@@ -27,13 +27,13 @@ export const ManPhoto: React.FC<IManPhotoProps> = ({
       />
 
       <source
-        media="(min-width: 640px) and (max-width: 1023px)"
+        media="(min-width: 640px) and (max-width: 767px)"
         srcSet={`${ManTablet.src} 1x, ${ManTablet2x.src} 2x`}
         type="image/png"
       />
 
       <source
-        media="(min-width: 1024px)"
+        media="(min-width: 768px)"
         srcSet={`${ManDesktop.src} 1x, ${ManDesktop2x.src} 2x`}
         type="image/png"
       />

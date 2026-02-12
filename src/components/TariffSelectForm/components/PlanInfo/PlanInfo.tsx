@@ -9,6 +9,7 @@ export const PlanInfo: React.FC<IPlanInfoProps> = ({ className }) => (
   <div
     className={classNames(
       'relative max-w-125 py-4.5 pr-5 pl-13 rounded-[20px] bg-gray2 border border-lightgray text-[16px] leading-[130%]',
+      'max-md:pl-10 max-md:text-[12px]',
       className
     )}
   >
@@ -18,7 +19,7 @@ export const PlanInfo: React.FC<IPlanInfoProps> = ({ className }) => (
       viewBox="0 0 24 26"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={'absolute top-4.5 left-5'}
+      className={'absolute top-4.5 left-5 max-md:left-3'}
     >
       <path
         d="M10.8775 16.6437C10.8869 17.2578 11.3885 17.75 12.0025 17.75C12.6166 17.75 13.1181 17.2531 13.1275 16.6437L13.5025 6.5375C13.526 6.15313 13.3853 5.77813 13.1135 5.4875C12.8228 5.17813 12.4197 5 12.0025 5C11.5853 5 11.1822 5.17813 10.8916 5.4875C10.6197 5.77813 10.4791 6.15313 10.5025 6.5375L10.8775 16.6437Z"

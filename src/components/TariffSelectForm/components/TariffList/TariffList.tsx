@@ -23,6 +23,8 @@ export const TariffList: React.FC<ITariffListProps> = ({
 }) => {
   const listClassNames = classNames(
     'grid grid-cols-3 gap-3.5 list-none p-0',
+    'max-xl:grid-cols-1 max-xl:gap-2',
+    'max-sm:gap-1.5',
     className
   );
 
@@ -31,7 +33,9 @@ export const TariffList: React.FC<ITariffListProps> = ({
       {data.map((item: ITariff) => (
         <li
           key={item.id}
-          className={classNames({ 'col-span-full': item.is_best })}
+          className={classNames('max-xl:col-span-1', {
+            'col-span-full max-xl:col-span-1': item.is_best,
+          })}
         >
           <TariffCard
             {...item}

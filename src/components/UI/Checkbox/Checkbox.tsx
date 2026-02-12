@@ -30,7 +30,7 @@ export const Checkbox: React.FC<ICheckboxProps> = props => {
     <label className={labelClassNames}>
       <input
         {...checkboxProps}
-        checked={checked}
+        defaultChecked={checked}
         type="сheckbox"
         className={'hidden'}
         onClick={onClick}
@@ -41,7 +41,7 @@ export const Checkbox: React.FC<ICheckboxProps> = props => {
         viewBox="0 0 32 32"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className={'mt-px cursor-pointer'}
+        className={'mt-px cursor-pointer max-md:mt-0'}
       >
         <path
           d="M29.0909 0H2.90911C1.30541 0 0 1.30466 0 2.90911V29.0909C0 30.6953 1.30541 32.0001 2.90911 32.0001H29.0909C30.6946 32.0001 32.0001 30.6954 32.0001 29.0909V2.90911C32 1.30466 30.6946 0 29.0909 0ZM30.5455 29.0909C30.5455 29.8928 29.8934 30.5455 29.0909 30.5455H2.90911C2.10655 30.5455 1.45459 29.8928 1.45459 29.0909V2.90911C1.45459 2.1073 2.10661 1.45459 2.90911 1.45459H29.0909C29.8935 1.45459 30.5455 2.1073 30.5455 2.90911V29.0909Z"
